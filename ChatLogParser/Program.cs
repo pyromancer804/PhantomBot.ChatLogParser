@@ -15,7 +15,7 @@ namespace ChatLogParser
             Console.WriteLine("== Look for chat files ==");
 
             // Get a list of files from the folder
-            List<string> filePaths = Directory.GetFiles(@"C:\temp\log temp").ToList();
+            List<string> filePaths = Directory.GetFiles(@"B:\logs\chat").ToList();
             Console.WriteLine($"There are {filePaths.Count} chat logs to parse...");
 
             // Thread safe bag to store the messages

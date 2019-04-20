@@ -13,6 +13,8 @@ namespace ChatLogParser.model
         public ChatMessage(string _logLine)
         {
             TimeStamp = ParseDate(_logLine);
+            UserName = ParseUserName(_logLine);
+            Message = ParseMessage(_logLine);
         }
 
         /// <summary>
@@ -24,6 +26,26 @@ namespace ChatLogParser.model
         {
             string dateString = _logLine.Split('[')[1].Split(']')[0].Trim();
             return DateTime.ParseExact(dateString,"MM-dd-yyyy @ HH:mm:ss.fff GMT",null);
+        }
+
+        /// <summary>
+        /// Parse the username
+        /// </summary>
+        /// <param name="_logLine"></param>
+        /// <returns></returns>
+        private string ParseUserName(string _logLine)
+        {
+            return _logLine.Split(']')[1].Split(':')[0].Trim();
+        }
+
+        /// <summary>
+        /// Parse the message
+        /// </summary>
+        /// <param name="_logLine"></param>
+        /// <returns></returns>
+        private string ParseMessage(string _logLine)
+        {
+            return _logLine.Split(']')[1].Split(':')[1].Trim();
         }
     }
 }
