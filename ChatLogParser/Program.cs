@@ -15,6 +15,14 @@ namespace ChatLogParser
 
             Console.WriteLine($"There are {filePaths.Count} chat logs to parse...");
 
+            
+
+
+
+
+
+
+
             Console.ReadLine();
         }
     }
