@@ -34,7 +34,16 @@ namespace ChatLogParser
                     }
                     Console.WriteLine($"Done Reading {_filePath}");
                 });
-            
+
+            // Write messages to a csv
+            StreamWriter sw = new StreamWriter(@"C:\temp\log temp\output.csv");
+            sw.WriteLine("TimeStamp,UserName,Message");
+            foreach (ChatMessage message in messages.OrderBy(_m=>_m.TimeStamp))
+            {
+                sw.WriteLine(message.ToCSV());
+            }
+            sw.Close();
+
             Console.ReadLine();
         }
     }

@@ -17,6 +17,11 @@ namespace ChatLogParser.model
             Message = ParseMessage(_logLine);
         }
 
+        public string ToCSV()
+        {
+            return $@"{TimeStamp:G},{UserName},""{Message}""";
+        }
+
         /// <summary>
         /// Parse the datetime from the log to a datetime format
         /// </summary>
