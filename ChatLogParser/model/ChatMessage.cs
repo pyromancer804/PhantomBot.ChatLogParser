@@ -50,7 +50,8 @@ namespace ChatLogParser.model
         /// <returns></returns>
         private string ParseMessage(string _logLine)
         {
-            return _logLine.Split(']')[1].Split(':')[1].Trim();
+            string userAndMessage =_logLine.Split(']')[1];
+            return userAndMessage.Substring(userAndMessage.IndexOf(':')+1); // Only go from the first :
         }
     }
 }
